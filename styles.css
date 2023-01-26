@@ -7,8 +7,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 35px;
 }
 
 .logo {
     display: flex;
+}
+
+#login {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(206, 90, 33);
+    font-weight: bold;
 }
