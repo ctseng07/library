@@ -18,6 +18,43 @@
     width: 100px;
     height: 30px;
     border-radius: 10px;
-    background-color: rgb(206, 90, 33);
+    background-color: bisque;
     font-weight: bold;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.new-book {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color: bisque;
+    font-size: xx-large;
+}
+
+.sort,
+.book-read {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color: bisque;
+}
+
+.sort>img {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: bisque;
+}
+
+.book-read>img {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: bisque;
 }
