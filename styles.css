@@ -12,6 +12,19 @@
 
 .logo {
     display: flex;
+    border-radius: 10px;
+    background-color: bisque;
+    border: solid black;
+}
+
+.logo>h1 {
+    background-color: bisque;
+    padding-right: 10px;
+}
+
+.logo>img {
+    background-color: bisque;
+    border-radius: 10px;
 }
 
 #login {
