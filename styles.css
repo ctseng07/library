@@ -1,6 +1,6 @@
-/* * {
+* {
     border: 1px solid red;
-} */
+}
 
 body {
     background-color: lightgray;
@@ -40,8 +40,8 @@ body {
 }
 
 #login {
-    width: 100px;
-    height: 30px;
+    min-width: 100px;
+    min-height: 30px;
     border-radius: 10px;
     background-color: bisque;
     font-weight: bold;
@@ -64,8 +64,8 @@ body {
 
 
 .new-book {
-    height: 50px;
-    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
     border-radius: 25px;
     background-color: bisque;
     font-size: xx-large;
@@ -79,8 +79,8 @@ body {
 
 .sort,
 .book-read {
-    height: 50px;
-    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
     border-radius: 25px;
     background-color: bisque;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
@@ -130,7 +130,7 @@ button.book-read>img:hover {
     border-radius: 10px;
     z-index: 10;
     background-color: whitesmoke;
-    width: 300px;
+    min-width: 20rem;
     max-width: 80%;
 }
 
@@ -148,8 +148,8 @@ button.book-read>img:hover {
 }
 
 .add-book>input {
-    width: 15vw;
-    height: 4vh;
+    max-width: 15vw;
+    max-height: 4vh;
 }
 
 .mark-read {
@@ -157,8 +157,8 @@ button.book-read>img:hover {
 }
 
 button.submit {
-    width: 100px;
-    height: 35px;
+    min-width: 10rem;
+    min-height: 5rem;
     background-color: bisque;
     border-radius: 10px;
     font-weight: bold;
@@ -190,7 +190,7 @@ button.submit:hover {
 /* SIDE BAR */
 
 .tracker {
-    width: 15.5vw;
+    max-width: 16.8vw;
     min-height: 50vh;
     margin-left: 35px;
     background-color: bisque;
@@ -211,5 +211,4 @@ button.submit:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: bisque;
 }
