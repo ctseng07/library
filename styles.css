@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 body {
     background-color: lightgray;
@@ -60,6 +60,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 25px;
+    margin-top: 10px;
 }
 
 
@@ -190,8 +191,9 @@ button.submit:hover {
 /* SIDE BAR */
 
 .tracker {
-    max-width: 16.8vw;
+    max-width: 15.5vw;
     min-height: 50vh;
+    margin-top: 10px;
     margin-left: 35px;
     background-color: bisque;
     border: solid black;
