@@ -159,7 +159,7 @@ button.book-read>img:hover {
 
 button.submit {
     min-width: 10rem;
-    min-height: 5rem;
+    min-height: 2rem;
     background-color: bisque;
     border-radius: 10px;
     font-weight: bold;
