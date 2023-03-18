@@ -121,7 +121,7 @@ button.book-read>img:hover {
 
 /* BOOK MODAL */
 
-.book-modal {
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -135,7 +135,7 @@ button.book-read>img:hover {
     max-width: 80%;
 }
 
-.book-modal.active {
+.modal.active {
     transform: translate(-50%, -50%) scale(1);
 
 }
@@ -171,6 +171,17 @@ button.submit:hover {
     background-color: rgb(143, 127, 107);
 }
 
+.close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: right;
+}
+
 #overlay {
     position: fixed;
     opacity: 0;
@@ -179,7 +190,7 @@ button.submit:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
 }
 
