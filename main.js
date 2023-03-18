@@ -1,6 +1,6 @@
 let newBook = document.querySelectorAll(".new-book");
 let closeModalButtons = document.querySelectorAll(".close-button");
-let modal = document.querySelector(".book-modal");
+let modal = document.querySelector(".modal");
 let overlay = document.querySelector("#overlay");
 let bookContent = document.querySelector(".book-content");
 let addBook = document.querySelector("add-book");
