@@ -17,11 +17,22 @@ function Book(title, author, pages, read, bookRead) {
 
 function render() {
     let libraryBook = document.querySelector(".library");
+    libraryBook.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         // console.log(myLibrary[i]);
         let book = myLibrary[i];
         let newBook = document.createElement('div');
-        newBook.innerHTML = `<p>${book.title}<p><p>${book.author}<p>`;
+        newBook.innerHTML = `
+        <div class="card-header">
+            <h3 class="title">${book.title}</h3>
+            <h5 class="author">by ${book.author}</h5>
+         </div>
+         <div class="card-body">
+            <p>${book.pages} pages</p>
+            <p>${book.read} pages read</p>
+            <p class="read-status">${book.bookRead ? "Read" : "Not Finished"}</p>
+        </div>
+         `;
         libraryBook.appendChild(newBook);
     }
 }
