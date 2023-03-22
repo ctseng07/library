@@ -5,12 +5,6 @@ let overlay = document.querySelector("#overlay");
 let bookContent = document.querySelector(".book-content");
 let addBook = document.querySelector("add-book");
 
-// let titleInput = document.querySelector("#title");
-// let authorInput = document.querySelector("#author");
-// let pagesInput = document.querySelector("#pages");
-// let readInput = document.querySelector("#read");
-// let bookReadInput = document.querySelector("#bookRead");
-
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -24,7 +18,7 @@ function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").value;
+    let read = document.querySelector("#read").checked;
     let bookRead = document.querySelector("#bookRead").value;
     let newBookInfo = new Book(title, author, pages, read);
     myLibrary.push(newBookInfo)
