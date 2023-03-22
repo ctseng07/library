@@ -7,22 +7,33 @@ let addBook = document.querySelector("add-book");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, bookRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.bookRead = bookRead;
 }
 
+function render() {
+    let libraryBook = document.querySelector(".library");
+    for (let i = 0; i < myLibrary.length; i++) {
+        // console.log(myLibrary[i]);
+        let book = myLibrary[i];
+        let newBook = document.createElement('div');
+        newBook.innerHTML = `<p>${book.title}<p><p>${book.author}<p>`;
+        libraryBook.appendChild(newBook);
+    }
+}
 function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").checked;
-    let bookRead = document.querySelector("#bookRead").value;
-    let newBookInfo = new Book(title, author, pages, read);
+    let read = document.querySelector("#read").value;
+    let bookRead = document.querySelector("#bookRead").checked;
+    let newBookInfo = new Book(title, author, pages, read, bookRead);
     myLibrary.push(newBookInfo)
-    console.log(myLibrary);
+    render();
 }
 
 document.querySelector('#add-book').addEventListener("submit", function (event) {
