@@ -22,6 +22,7 @@ function render() {
         // console.log(myLibrary[i]);
         let book = myLibrary[i];
         let newBook = document.createElement('div');
+        newBook.setAttribute('class', "book-card");
         newBook.innerHTML = `
         <div class="card-header">
             <h3 class="title">${book.title}</h3>
