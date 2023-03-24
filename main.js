@@ -2,8 +2,8 @@ let newBook = document.querySelectorAll(".new-book");
 let closeModalButtons = document.querySelectorAll(".close-button");
 let modal = document.querySelector(".modal");
 let overlay = document.querySelector("#overlay");
-let bookContent = document.querySelector(".book-content");
-let addBook = document.querySelector("add-book");
+// let bookContent = document.querySelector(".book-content");
+// let addBook = document.querySelector("add-book");
 
 let myLibrary = [];
 
@@ -32,11 +32,18 @@ function render() {
             <p>${book.pages} pages</p>
             <p>${book.read} pages read</p>
             <p class="read-status">${book.bookRead ? "Read" : "Not Finished"}</p>
+            <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
         </div>
          `;
         libraryBook.appendChild(newBook);
     }
 }
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    render()
+}
+
 function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
