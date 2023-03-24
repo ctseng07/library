@@ -15,6 +15,15 @@ function Book(title, author, pages, read, bookRead) {
     this.bookRead = bookRead;
 }
 
+Book.prototype.toggleRead = function () {
+    this.bookRead = !this.bookRead;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
 function render() {
     let libraryBook = document.querySelector(".library");
     libraryBook.innerHTML = "";
@@ -25,13 +34,13 @@ function render() {
         newBook.setAttribute('class', "book-card");
         newBook.innerHTML = `
         <div class="card-header">
-            <h1 class="title">${book.title}</h1>
+            <h1 class="title">"${book.title}"</h1>
             <h4 class="author">by ${book.author}</h4>
          </div>
          <div class="card-body">
             <p>${book.pages} pages total</p>
             <p>${book.read} pages read</p>
-            <p class="read-status">${book.bookRead ? "Read" : "Not Finished"}</p>
+            <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Read" : "Not Finished"}</button>
             <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
         </div>
          `;
