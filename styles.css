@@ -225,3 +225,38 @@ button.submit:hover {
     align-items: center;
     justify-content: space-between;
 }
+
+/* 
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    max-width: 30vw;
+    min-height: 50vh;
+}
+
+.book-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    max-width: 30vw;
+    min-height: 50vh;
+} */
+.library {
+    padding: 50px;
+    margin-left: 40px;
+}
+
+.book-card {
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
