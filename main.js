@@ -7,28 +7,17 @@ let overlay = document.querySelector("#overlay");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read, bookRead) {
+function Book(title, author, pages, bookRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
     this.bookRead = bookRead;
-}
-
-Book.prototype.toggleRead = function () {
-    this.bookRead = !this.bookRead;
-}
-
-function toggleRead(index) {
-    myLibrary[index].toggleRead();
-    render();
 }
 
 function render() {
     let libraryBook = document.querySelector(".library");
     libraryBook.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
-        // console.log(myLibrary[i]);
         let book = myLibrary[i];
         let newBook = document.createElement('div');
         newBook.setAttribute('class', "book-card");
@@ -38,14 +27,33 @@ function render() {
             <h4 class="author">by ${book.author}</h4>
          </div>
          <div class="card-body">
-            <p>${book.pages} pages total</p>
-            <p>${book.read} pages read</p>
-            <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Read" : "Not Finished"}</button>
-            <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
-        </div>
-         `;
+            <p>${book.pages} total pages</p>
+            <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button >
+        <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
+        </div >
+        `;
         libraryBook.appendChild(newBook);
     }
+}
+
+// function bookStatus() {
+//     if (bookRead === false) {
+//         bookRead.textContent = 'Not Read';
+//         bookRead.style.backgroundColor = '#e04f63';
+//     } else {
+//         bookRead.textContent = 'Read';
+//         bookRead.style.backgroundColor = '#63da63'
+//     }
+// }
+
+Book.prototype.toggleRead = function () {
+    this.bookRead = !this.bookRead;
+}
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+    bookStatus();
+    console.log(bookStatus);
 }
 
 function removeBook(index) {
@@ -57,9 +65,8 @@ function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").value;
     let bookRead = document.querySelector("#bookRead").checked;
-    let newBookInfo = new Book(title, author, pages, read, bookRead);
+    let newBookInfo = new Book(title, author, pages, bookRead);
     myLibrary.push(newBookInfo)
     render();
 }
@@ -103,44 +110,69 @@ function closeModal(modal) {
     overlay.classList.remove('active');
 }
 
+// function render() {
+//     const display = document.querySelector(".library");
+//     const books = document.querySelectorAll(".book");
+//     books.forEach(book => display.removeChild(book));
 
-// newBook.addEventListener(click, );
-
-// function modal {
-
-// }
-
-// class Book {
-//     constructor(title, author, pages, read, bookRead) {
-//         this.title = title
-//             .trim()
-//             .split(" ")
-//             .map((word) => {
-//                 return word[0].toUpperCase() + word.substring(1).toLowerCase();
-//             })
-//             .join(" ");
-//         this.author = author
-//             .trim()
-//             .split(" ")
-//             .map((word) => {
-//                 return word[0].toUpperCase() + word.substring(1).toLowerCase();
-//             })
-//             .join(" ");
-//         this.pages = pages;
-//         this.read = read;
-//         this.bookRead = bookRead;
+//     for (let i = 0; i < myLibrary.length; i++) {
+//         createBook(myLibrary[i]);
 //     }
 // }
 
+// function createBook(item) {
+//     const library = document.querySelector('.library');
+//     const bookDiv = document.createElement('div');
+//     const titleDiv = document.createElement('div');
+//     const authDiv = document.createElement('div');
+//     const pageDiv = document.createElement('div');
+//     const removeBtn = document.createElement('button');
+//     const readBtn = document.createElement('button');
 
 
+//     bookDiv.classList.add('book');
+//     bookDiv.setAttribute('id', myLibrary.indexOf(item));
 
-// function addBookToLibrary() {
-//     let newBook = new Book(
-//     .value,
-//         authorInput.value,
-//         pagesInput.value,
-//         readInput.value,
-//         bookReadInput.checked
-//     );
-// }
+//     titleDiv.textContent = item.title
+//     titleDiv.classList.add('title');
+//     bookDiv.appendChild(titleDiv);
+
+//     authDiv.textContent = item.author;
+//     authDiv.classList.add('author');
+//     bookDiv.appendChild(authDiv);
+
+//     pageDiv.textContent = item.pages;
+//     pageDiv.classList.add('pages');
+//     bookDiv.appendChild(pageDiv);
+
+//     readBtn.classList.add('readBtn')
+//     bookDiv.appendChild(readBtn);
+//     if (item.read === false) {
+//         readBtn.textContent = 'Not Read';
+//         readBtn.style.backgroundColor = '#e04f63';
+//     } else {
+//         readBtn.textContent = 'Read';
+//         readBtn.style.backgroundColor = '#63da63'
+//     }
+
+//     removeBtn.textContent = 'Remove';
+//     removeBtn.setAttribute('id', 'removeBtn');
+//     bookDiv.appendChild(removeBtn);
+
+//     library.appendChild(bookDiv);
+
+//     removeBtn.addEventListener('click', () => {
+//         myLibrary.splice(myLibrary.indexOf(item), 1);
+//         // setData()
+//         render();
+//     });
+
+//     //add toggle ability to each book 'read' button on click
+//     readBtn.addEventListener('click', () => {
+//         item.read = !item.read;
+//         // setData();
+//         render();
+//     });
+// };
+
+{/* <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button> */ }
