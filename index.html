@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="btn-choice">
-            <button class="new-book" data-modal-target="#modal">+</button>
+            <button class="new-book" data-modal-target="#modal">+ New Book</button>
             <div class="modal" id="modal">
                 <div class="close-button">
                     <button data-close-button class="close-button">&times;</button>
@@ -32,7 +32,6 @@
                     <input class="input" type="text" id="title" placeholder="Title" required maxlength="100">
                     <input class="input" type="text" id="author" placeholder="Author" required maxlength="100">
                     <input class="input" type="number" id="pages" placeholder="Total Pages" required maxlength="10000">
-                    <input class="input" type="number" id="read" placeholder="Pages Read" required maxlength="10000">
                     <div class="mark-read">
                         <label for="mark-read">Did you finish it?</label>
                         <input class="checkBox" type="checkbox" id="bookRead">
@@ -40,12 +39,12 @@
                     <button class="submit" type="submit">Submit</button>
                 </form>
             </div>
-            <button class="sort">
+            <!-- <button class="sort">
                 <img src="./icons/sort.svg">
             </button>
             <button class="book-read">
                 <img src="./icons/read.svg">
-            </button>
+            </button> -->
             <div id="overlay"></div>
         </div>
     </div>
