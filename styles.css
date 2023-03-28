@@ -67,7 +67,7 @@ body {
 .new-book {
     min-height: 50px;
     min-width: 50px;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: bisque;
     font-size: xx-large;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
@@ -141,8 +141,8 @@ button.book-read>img:hover {
 }
 
 .add-book>input {
-    max-width: 15vw;
-    max-height: 4vh;
+    width: 15vw;
+    height: 6vh;
 }
 
 .mark-read {
@@ -193,7 +193,7 @@ button.submit:hover {
 
 .library {
     padding: 50px;
-    margin-left: 40px;
+    margin-left: 25px;
 }
 
 .book-card {
@@ -210,7 +210,7 @@ button.submit:hover {
 
 button.remove-btn {
     height: 2rem;
-    width: 6rem;
+    width: 18rem;
     background-color: lightcoral;
     cursor: pointer;
 }
@@ -222,6 +222,18 @@ button.remove-btn:hover {
 
 button:hover {
     background-color: rgb(143, 127, 107);
+}
+
+button.toggle-read-btn {
+    height: 2rem;
+    width: 18rem;
+    /* background-color: lightcoral; */
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+button.toggle-read-btn:hover {
+    background-color: white;
 }
 
 /* SIDE BAR */

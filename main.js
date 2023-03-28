@@ -15,7 +15,7 @@ function Book(title, author, pages, bookRead) {
     this.bookRead = bookRead;
 }
 
-function render() {
+function newBookCard() {
     let libraryBook = document.querySelector(".library");
     libraryBook.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
@@ -35,6 +35,7 @@ function render() {
         `;
         libraryBook.appendChild(newBook);
     }
+
 }
 
 // function bookStatus() {
@@ -52,14 +53,14 @@ Book.prototype.toggleRead = function () {
 }
 function toggleRead(index) {
     myLibrary[index].toggleRead();
-    render();
+    newBookCard();
     bookStatus();
     console.log(bookStatus);
 }
 
 function removeBook(index) {
     myLibrary.splice(index, 1);
-    render()
+    newBookCard()
 }
 
 function addBookToLibrary() {
@@ -69,13 +70,13 @@ function addBookToLibrary() {
     let bookRead = document.querySelector("#bookRead").checked;
     let newBookInfo = new Book(title, author, pages, bookRead);
     myLibrary.push(newBookInfo)
-    render();
+    newBookCard();
 }
 
 document.querySelector('#add-book').addEventListener("submit", function (event) {
     event.preventDefault();
     addBookToLibrary();
-})
+});
 
 newBook.forEach(button => {
     button.addEventListener('click', () => {
@@ -117,7 +118,7 @@ function loginBtn() {
     });
 }
 
-// function render() {
+// function newBookCard() {
 //     const display = document.querySelector(".library");
 //     const books = document.querySelectorAll(".book");
 //     books.forEach(book => display.removeChild(book));
@@ -171,14 +172,14 @@ function loginBtn() {
 //     removeBtn.addEventListener('click', () => {
 //         myLibrary.splice(myLibrary.indexOf(item), 1);
 //         // setData()
-//         render();
+//         newBookCard();
 //     });
 
 //     //add toggle ability to each book 'read' button on click
 //     readBtn.addEventListener('click', () => {
 //         item.read = !item.read;
 //         // setData();
-//         render();
+//         newBookCard();
 //     });
 // };
 
