@@ -2,6 +2,7 @@ let newBook = document.querySelectorAll(".new-book");
 let closeModalButtons = document.querySelectorAll(".close-button");
 let modal = document.querySelector(".modal");
 let overlay = document.querySelector("#overlay");
+let login = document.querySelector("#login");
 // let bookContent = document.querySelector(".book-content");
 // let addBook = document.querySelector("add-book");
 
@@ -27,7 +28,7 @@ function render() {
             <h4 class="author">by ${book.author}</h4>
          </div>
          <div class="card-body">
-            <p>${book.pages} total pages</p>
+            <p>${book.pages} pages total</p>
             <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button >
         <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
         </div >
@@ -84,7 +85,7 @@ newBook.forEach(button => {
 });
 
 overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('modal.active')
+    const modals = document.querySelectorAll('.modal.active')
     modals.forEach(modal => {
         closeModal(modal)
     });
@@ -108,6 +109,12 @@ function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove('active');
     overlay.classList.remove('active');
+}
+
+function loginBtn() {
+    login.addEventListener(click, () => {
+
+    });
 }
 
 // function render() {
