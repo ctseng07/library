@@ -3,7 +3,6 @@ let closeModalButtons = document.querySelectorAll(".close-button");
 let modal = document.querySelector(".modal");
 let overlay = document.querySelector("#overlay");
 let login = document.querySelector("#login");
-// let bookContent = document.querySelector(".book-content");
 let addBook = document.querySelector("#add-book");
 
 let myLibrary = [];
@@ -35,41 +34,29 @@ function newBookCard() {
             <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button >
         <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
         </div >
-        `;
-        // readBtn.classList.add('readBtn')
-        // newBook.appendChild(readBtn);
-        // if (item.bookRead === false) {
-        //     readBtn.textContent = 'Not Read';
-        //     readBtn.style.backgroundColor = '#e04f63';
-        // } else {
-        //     readBtn.textContent = 'Read';
-        //     readBtn.style.backgroundColor = '#63da63'
-        // };
-
+        `
         libraryBook.appendChild(newBook);
-        addBook.reset();
     }
 
-}
+};
 
 // function bookStatus() {
 //     if (bookRead === false) {
-//         bookRead.textContent = 'Not Read';
+//         bookRead.textContent = 'Not Finished Yet';
 //         bookRead.style.backgroundColor = '#e04f63';
 //     } else {
-//         bookRead.textContent = 'Read';
+//         bookRead.textContent = 'Finished';
 //         bookRead.style.backgroundColor = '#63da63'
-//     }
-// }
+//     };
+// };
 
 Book.prototype.toggleRead = function () {
     this.bookRead = !this.bookRead;
-}
+};
+
 function toggleRead(index) {
-    myLibrary[index].toggleRead();
+    myLibrary[index].toggleRead(index);
     newBookCard();
-    bookStatus();
-    console.log(bookStatus);
 }
 
 function removeBook(index) {
@@ -148,76 +135,32 @@ function restore() {
 
 restore();
 
+// Login
 
-// function loginBtn() {
-//     login.addEventListener(click, () => {
+// const auth = firebase.auth()
+// const logInBtn = document.getElementById('#login')
+// const logOutBtn = document.getElementById('logOutBtn')
 
-//     });
-// }
-
-// function newBookCard() {
-//     const display = document.querySelector(".library");
-//     const books = document.querySelectorAll(".book");
-//     books.forEach(book => display.removeChild(book));
-
-//     for (let i = 0; i < myLibrary.length; i++) {
-//         createBook(myLibrary[i]);
-//     }
-// }
-
-// function createBook(item) {
-//     const library = document.querySelector('.library');
-//     const bookDiv = document.createElement('div');
-//     const titleDiv = document.createElement('div');
-//     const authDiv = document.createElement('div');
-//     const pageDiv = document.createElement('div');
-//     const removeBtn = document.createElement('button');
-//     const readBtn = document.createElement('button');
-
-
-//     bookDiv.classList.add('book');
-//     bookDiv.setAttribute('id', myLibrary.indexOf(item));
-
-//     titleDiv.textContent = item.title
-//     titleDiv.classList.add('title');
-//     bookDiv.appendChild(titleDiv);
-
-//     authDiv.textContent = item.author;
-//     authDiv.classList.add('author');
-//     bookDiv.appendChild(authDiv);
-
-//     pageDiv.textContent = item.pages;
-//     pageDiv.classList.add('pages');
-//     bookDiv.appendChild(pageDiv);
-
-//     readBtn.classList.add('readBtn')
-//     bookDiv.appendChild(readBtn);
-//     if (item.read === false) {
-//         readBtn.textContent = 'Not Read';
-//         readBtn.style.backgroundColor = '#e04f63';
+// auth.onAuthStateChanged(async (user) => {
+//     if (user) {
+//         setupRealTimeListener()
 //     } else {
-//         readBtn.textContent = 'Read';
-//         readBtn.style.backgroundColor = '#63da63'
+//         if (unsubscribe) unsubscribe()
+//         restoreLocal()
+//         updateBooksGrid()
 //     }
+//     setupAccountModal(user)
+//     setupNavbar(user)
+// })
 
-//     removeBtn.textContent = 'Remove';
-//     removeBtn.setAttribute('id', 'removeBtn');
-//     bookDiv.appendChild(removeBtn);
+// const signIn = () => {
+//     const provider = new firebase.auth.GoogleAuthProvider()
+//     auth.signInWithPopup(provider)
+// }
 
-//     library.appendChild(bookDiv);
+// const signOut = () => {
+//     auth.signOut()
+// }
 
-//     removeBtn.addEventListener('click', () => {
-//         myLibrary.splice(myLibrary.indexOf(item), 1);
-//         // setData()
-//         newBookCard();
-//     });
-
-//     //add toggle ability to each book 'read' button on click
-//     readBtn.addEventListener('click', () => {
-//         item.read = !item.read;
-//         // setData();
-//         newBookCard();
-//     });
-// };
-
-/* <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button> */ 
+// logInBtn.onclick = signIn
+// logOutBtn.onclick = signOut

@@ -78,7 +78,7 @@ body {
     background-color: rgb(143, 127, 107);
 }
 
-.sort,
+/* .sort,
 .book-read {
     min-height: 50px;
     min-width: 50px;
@@ -109,7 +109,7 @@ button.book-read>img:hover {
     align-items: center;
     border-radius: 20px;
     background-color: bisque;
-}
+} */
 
 /* BOOK MODAL */
 
@@ -234,6 +234,10 @@ button.toggle-read-btn {
 
 button.toggle-read-btn:hover {
     background-color: white;
+}
+
+p {
+    font-weight: bold;
 }
 
 /* SIDE BAR */
