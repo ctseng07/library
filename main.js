@@ -4,7 +4,7 @@ let modal = document.querySelector(".modal");
 let overlay = document.querySelector("#overlay");
 let login = document.querySelector("#login");
 // let bookContent = document.querySelector(".book-content");
-// let addBook = document.querySelector("add-book");
+let addBook = document.querySelector("#add-book");
 
 let myLibrary = [];
 
@@ -17,13 +17,13 @@ function Book(title, author, pages, bookRead) {
 
 // Book Modal //
 
-function newBookCard(item) {
+function newBookCard() {
     let libraryBook = document.querySelector(".library");
     libraryBook.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
         let newBook = document.createElement('div');
-        let readBtn = document.createElement('button');
+        // let readBtn = document.createElement('button');
         newBook.setAttribute('class', "book-card");
         newBook.innerHTML = `
         <div class="card-header">
@@ -47,6 +47,7 @@ function newBookCard(item) {
         // };
 
         libraryBook.appendChild(newBook);
+        addBook.reset();
     }
 
 }
@@ -85,11 +86,13 @@ function addBookToLibrary() {
     myLibrary.push(newBookInfo)
     newBookCard();
     setData();
+    addBook.reset();
 }
 
-document.querySelector('#add-book').addEventListener("submit", function (event) {
+addBook.addEventListener("submit", function (event) {
     event.preventDefault();
     addBookToLibrary();
+    closeModal(modal);
 });
 
 newBook.forEach(button => {
@@ -110,7 +113,7 @@ closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         const modal = button.closest('.modal')
         closeModal(modal)
-    })
+    });
 });
 
 
@@ -144,6 +147,7 @@ function restore() {
 }
 
 restore();
+
 
 // function loginBtn() {
 //     login.addEventListener(click, () => {
