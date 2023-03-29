@@ -15,12 +15,15 @@ function Book(title, author, pages, bookRead) {
     this.bookRead = bookRead;
 }
 
-function newBookCard() {
+// Book Modal //
+
+function newBookCard(item) {
     let libraryBook = document.querySelector(".library");
     libraryBook.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
         let newBook = document.createElement('div');
+        let readBtn = document.createElement('button');
         newBook.setAttribute('class', "book-card");
         newBook.innerHTML = `
         <div class="card-header">
@@ -33,6 +36,16 @@ function newBookCard() {
         <button class="remove-btn" onClick="removeBook(${i})">Remove</button>
         </div >
         `;
+        // readBtn.classList.add('readBtn')
+        // newBook.appendChild(readBtn);
+        // if (item.bookRead === false) {
+        //     readBtn.textContent = 'Not Read';
+        //     readBtn.style.backgroundColor = '#e04f63';
+        // } else {
+        //     readBtn.textContent = 'Read';
+        //     readBtn.style.backgroundColor = '#63da63'
+        // };
+
         libraryBook.appendChild(newBook);
     }
 
@@ -71,6 +84,7 @@ function addBookToLibrary() {
     let newBookInfo = new Book(title, author, pages, bookRead);
     myLibrary.push(newBookInfo)
     newBookCard();
+    setData();
 }
 
 document.querySelector('#add-book').addEventListener("submit", function (event) {
@@ -112,11 +126,30 @@ function closeModal(modal) {
     overlay.classList.remove('active');
 }
 
-function loginBtn() {
-    login.addEventListener(click, () => {
-
-    });
+// setting Library to be stored in local storage
+function setData() {
+    localStorage.setItem(`myLibrary`, JSON.stringify(myLibrary));
 }
+
+//pulls books from local storage when page is refreshed
+function restore() {
+    if (!localStorage.myLibrary) {
+        newBookCard();
+    } else {
+        let objects = localStorage.getItem('myLibrary') // gets information from local storage to use in below loop to create DOM/display
+        objects = JSON.parse(objects);
+        myLibrary = objects;
+        newBookCard();
+    }
+}
+
+restore();
+
+// function loginBtn() {
+//     login.addEventListener(click, () => {
+
+//     });
+// }
 
 // function newBookCard() {
 //     const display = document.querySelector(".library");
@@ -183,4 +216,4 @@ function loginBtn() {
 //     });
 // };
 
-{/* <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button> */ }
+/* <button class="toggle-read-btn" onClick="toggleRead(${i})">${book.bookRead ? "Finished" : "Not Finished Yet"}</button> */ 
