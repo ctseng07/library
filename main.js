@@ -40,30 +40,6 @@ function newBookCard() {
 
 };
 
-// function bookStatus() {
-//     if (bookRead === false) {
-//         bookRead.textContent = 'Not Finished Yet';
-//         bookRead.style.backgroundColor = '#e04f63';
-//     } else {
-//         bookRead.textContent = 'Finished';
-//         bookRead.style.backgroundColor = '#63da63'
-//     };
-// };
-
-Book.prototype.toggleRead = function () {
-    this.bookRead = !this.bookRead;
-};
-
-function toggleRead(index) {
-    myLibrary[index].toggleRead(index);
-    newBookCard();
-}
-
-function removeBook(index) {
-    myLibrary.splice(index, 1);
-    newBookCard()
-}
-
 function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
@@ -115,6 +91,32 @@ function closeModal(modal) {
     modal.classList.remove('active');
     overlay.classList.remove('active');
 }
+
+//Book card functions
+
+Book.prototype.toggleRead = function () {
+    this.bookRead = !this.bookRead;
+};
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead(index);
+    newBookCard();
+};
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    newBookCard()
+}
+
+// function bookStatus() {
+//     if (bookRead === false) {
+//         bookRead.textContent = 'Not Finished Yet';
+//         bookRead.style.backgroundColor = '#e04f63';
+//     } else {
+//         bookRead.textContent = 'Finished';
+//         bookRead.style.backgroundColor = '#63da63'
+//     };
+// };
 
 // setting Library to be stored in local storage
 function setData() {
